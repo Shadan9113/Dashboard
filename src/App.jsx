@@ -1,14 +1,21 @@
-import React from 'react'
-import Layout  from './Layout'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "./Layout";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import Dashboard from "./pages/Dashboard";
 
-const App = () => {
+function App() {
   return (
-    <div>
-          <Layout>
-      <h1 className="text-2xl font-semibold text-center">Welcome to Telemed 👨‍⚕️</h1>
-    </Layout>
-    </div>
-  )
+    <Router>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </Layout>
+    </Router>
+  );
 }
 
-export default App
+export default App;
